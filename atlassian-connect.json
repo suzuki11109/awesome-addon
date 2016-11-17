@@ -1,0 +1,56 @@
+{
+  "key": "my-add-on",
+  "name": "Ping Pong",
+  "description": "My very first add-on",
+  "vendor": {
+    "name": "Angry Nerds",
+    "url": "https://www.atlassian.com/angrynerds"
+  },
+  "baseUrl": "{{localBaseUrl}}",
+  "links": {
+    "self": "{{localBaseUrl}}/atlassian-connect.json",
+    "homepage": "{{localBaseUrl}}/atlassian-connect.json"
+  },
+  "authentication": {
+    "type": "jwt"
+  },
+  "lifecycle": {
+    "installed": "/installed"
+  },
+  "scopes": [
+    "READ"
+    ],
+    "modules": {
+      "dynamicContentMacros": [
+        {
+          "key": "helloworld-macro",
+          "name": {
+            "value": "Hello World Macro"
+          },
+          "featured": true,
+          "url": "/macro?imgUrl={url}",
+          "description": {
+            "value": "Says 'Hello World'."
+          },
+          "outputType": "block",
+          "bodyType": "none",
+          "parameters": [
+            {
+              "identifier": "url",
+              "name": {
+                "value": "URL"
+              },
+              "type": "string",
+              "required": false
+            }
+          ],
+          "editor": {
+            "url": "/editor",
+            "width": "100%",
+            "height": "100%",
+            "chrome" : false
+          }
+        }
+      ]
+    }
+}
